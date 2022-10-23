@@ -1,3 +1,5 @@
+import NextLink from 'next/link';
+import { Link } from '@nextui-org/react';
 import { Text, useTheme } from '@nextui-org/react';
 import Image from 'next/image';
 
@@ -23,15 +25,22 @@ export const Navbar = () => {
           width={50}
           height={50}
         />
-        <Text color="white" h2>
-          R
-        </Text>
-        <Text color="white" h3>
-          ick & Morty
-        </Text>
+        <NextLink href="/" passHref>
+          <Link>
+            <Text color="white" h2>
+              R
+            </Text>
+            <Text color="white" h3>
+              ick & Morty
+            </Text>
+          </Link>
+        </NextLink>
       </div>
-
-      <Text color="white">Favorites</Text>
+      <NextLink href="/favorites" passHref>
+        <Link>
+          <Text color="white">Favorites</Text>
+        </Link>
+      </NextLink>
     </div>
   );
 };
