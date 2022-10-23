@@ -20,10 +20,10 @@ export const Navbar = () => {
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Image
-          src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+          src="https://png2.cleanpng.com/sh/b67d745570437b2856f3845ed8d50109/L0KzQYm3VMA5N51BiZH0aYP2gLBuTf1weqVAReV2aYTrPcPwgBsue5Jze9puej33f8XsTfJib15tedDtYnHqPbXojvNqdpgyTdNsOUm8Q4e7UsE1bWkzS6c8NEG3SIO4VcI0OWc2S6sDMkezR3B3jvc=/kisspng-morty-smith-rick-sanchez-tote-bag-handbag-dancing-5ac999364214e8.3534148215231613982707.png"
           alt="app logo"
-          width={50}
-          height={50}
+          width={80}
+          height={100}
         />
         <NextLink href="/" passHref>
           <Link>

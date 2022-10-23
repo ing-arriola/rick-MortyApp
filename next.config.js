@@ -4,7 +4,8 @@ const nextConfig = {
   swcMinify: true,
   images:{
     domains:[
-      'rickandmortyapi.com'
+      'rickandmortyapi.com',
+      'png2.cleanpng.com'
     ]
   }
 }
