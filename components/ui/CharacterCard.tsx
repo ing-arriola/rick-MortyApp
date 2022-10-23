@@ -9,7 +9,7 @@ interface CharacterCardProps {
 export const CharacterCard = ({ character }: CharacterCardProps) => {
   const router = useRouter();
   const onCardClick = () => {
-    router.push(`character/${character.id}`);
+    router.push(`/character/${character.id}`);
   };
 
   return (

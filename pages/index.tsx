@@ -11,7 +11,7 @@ interface HomePageProps {
 
 const HomePage: NextPage<HomePageProps> = ({ characters }) => {
   return (
-    <MainLayout>
+    <MainLayout title="Rick And Morty">
       <Grid.Container gap={2} justify="flex-start">
         {characters.map((character) => (
           <CharacterCard key={character.id} character={character} />
