@@ -1,19 +1,40 @@
+import { useState } from 'react';
 import { Button, Card, Grid, Text } from '@nextui-org/react';
 import { GetStaticProps, NextPage, GetStaticPaths } from 'next';
-import { useRouter } from 'next/router';
+
+import confetti from 'canvas-confetti';
+
 import { rickMortyApi } from '../../api';
 import { MainLayout } from '../../components/Layouts';
 import { Character, CharacterListResponse } from '../../interfaces';
+import { existInFavorites, toogleFavorites } from '../../utils';
 
 interface CharacterPageProps {
   character: Character;
 }
 
 const CharacterPage: NextPage<CharacterPageProps> = ({ character }) => {
-  const router = useRouter();
+  const [isFavorite, setisFavorite] = useState(existInFavorites(character.id));
+
+  const onClickFavorites = () => {
+    toogleFavorites(character.id);
+    setisFavorite(!isFavorite);
+    if (!isFavorite) {
+      confetti({
+        zIndex: 100,
+        particleCount: 100,
+        spread: 160,
+        angle: 90,
+        origin: {
+          x: 0.5,
+          y: 0.8,
+        },
+      });
+    }
+  };
 
   return (
-    <MainLayout>
+    <MainLayout title={character.name}>
       <Grid.Container css={{ marginTop: '5px' }} gap={2}>
         <Card>
           <Card.Body>
@@ -43,8 +64,8 @@ const CharacterPage: NextPage<CharacterPageProps> = ({ character }) => {
               </Text>
             </div>
             <Card.Footer css={{ display: 'flex', justifyContent: 'center' }}>
-              <Button ghost color="gradient">
-                Add to Favorites
+              <Button onPress={onClickFavorites} color="gradient">
+                {isFavorite ? 'Remove from' : 'Add to'} favorites
               </Button>
             </Card.Footer>
           </Card.Body>
