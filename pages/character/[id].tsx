@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { Button, Card, Grid, Text } from '@nextui-org/react';
 import { GetStaticProps, NextPage, GetStaticPaths } from 'next';
-
 import confetti from 'canvas-confetti';
 
 import { rickMortyApi } from '../../api';
 import { MainLayout } from '../../components/Layouts';
 import { Character, CharacterListResponse } from '../../interfaces';
 import { existInFavorites, toogleFavorites } from '../../utils';
+import { SpecificCharacter } from '../../components/ui';
 
 interface CharacterPageProps {
   character: Character;
@@ -35,42 +34,11 @@ const CharacterPage: NextPage<CharacterPageProps> = ({ character }) => {
 
   return (
     <MainLayout title={character.name}>
-      <Grid.Container css={{ marginTop: '5px' }} gap={2}>
-        <Card>
-          <Card.Body>
-            <Card.Image css={{ borderRadius: 5 }} src={character.image} />
-            <Card.Divider css={{ marginTop: 10 }} />
-            <div style={{ textAlign: 'center' }}>
-              <Text
-                css={{
-                  textGradient: '45deg, $blue600 -20%, $pink600 50%',
-                }}
-                weight="bold"
-                h1
-              >
-                Name: {character.name}
-              </Text>
-              <Text size="$xl" weight="bold">
-                Origin: {character.origin.name}
-              </Text>
-              <Text size="$xl" weight="bold">
-                Specie: {character.species}
-              </Text>
-              <Text size="$xl" weight="bold">
-                Location: {character.location.name}
-              </Text>
-              <Text size="$xl" weight="bold">
-                Status: {character.status}
-              </Text>
-            </div>
-            <Card.Footer css={{ display: 'flex', justifyContent: 'center' }}>
-              <Button onPress={onClickFavorites} color="gradient">
-                {isFavorite ? 'Remove from' : 'Add to'} favorites
-              </Button>
-            </Card.Footer>
-          </Card.Body>
-        </Card>
-      </Grid.Container>
+      <SpecificCharacter
+        onClickFavorites={onClickFavorites}
+        character={character}
+        isFavorite={isFavorite}
+      />
     </MainLayout>
   );
 };
