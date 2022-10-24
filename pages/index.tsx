@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import type { NextPage, GetStaticProps } from 'next';
-import { Button, Card, Grid } from '@nextui-org/react';
-import { MainLayout } from '../components/Layouts';
+import { Button, Grid } from '@nextui-org/react';
+
 import { rickMortyApi } from '../api';
 import { CharacterListResponse, Character } from '../interfaces';
+import { MainLayout } from '../components/Layouts';
 import { CharacterCard } from '../components/ui';
-import { useState } from 'react';
+import styled from 'styled-components';
 
 interface HomePageProps {
   characters: Character[];
@@ -37,13 +39,7 @@ const HomePage: NextPage<HomePageProps> = ({ characters }) => {
           <CharacterCard key={character.id} character={character} />
         ))}
       </Grid.Container>
-      <div
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          display: 'flex',
-        }}
-      >
+      <ButtonContainer>
         <Button
           color="gradient"
           onPress={onClickLoadMore}
@@ -51,7 +47,7 @@ const HomePage: NextPage<HomePageProps> = ({ characters }) => {
         >
           Load More
         </Button>
-      </div>
+      </ButtonContainer>
     </MainLayout>
   );
 };
@@ -65,5 +61,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     },
   };
 };
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default HomePage;

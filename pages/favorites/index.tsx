@@ -1,5 +1,6 @@
-import { Text } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
+import { Text } from '@nextui-org/react';
+
 import { MainLayout } from '../../components/Layouts';
 import { NoFavoritesFound } from '../../components/ui';
 import { FavoritesCharacters } from '../../components/ui';

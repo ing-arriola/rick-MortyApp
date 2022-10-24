@@ -1,5 +1,5 @@
-import { Card, Grid, Text } from '@nextui-org/react';
 import { useRouter } from 'next/router';
+import { Card, Grid, Text } from '@nextui-org/react';
 
 interface FavoritesCharactersProps {
   favorites: number[];
