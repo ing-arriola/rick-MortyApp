@@ -54,7 +54,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
         id: character,
       },
     })),
-    fallback: true,
+    fallback: 'blocking',
   };
 };
 
