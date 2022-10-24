@@ -86,7 +86,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
         id: character,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 };
 
