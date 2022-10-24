@@ -14,7 +14,9 @@ const Favorites = () => {
 
   return (
     <MainLayout title="Favorite characters">
-      <Text h1>Favorite characters</Text>
+      <Text css={{ textAlign: 'center' }} h1>
+        Favorite characters
+      </Text>
       {favorites.length ? (
         <FavoritesCharacters favorites={favorites} />
       ) : (
