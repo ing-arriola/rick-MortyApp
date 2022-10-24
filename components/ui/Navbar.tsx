@@ -1,5 +1,4 @@
 import NextLink from 'next/link';
-import { Link } from '@nextui-org/react';
 import { Text, useTheme } from '@nextui-org/react';
 import Image from 'next/image';
 
@@ -26,20 +25,20 @@ export const Navbar = () => {
           height={100}
         />
         <NextLink href="/" passHref>
-          <Link>
+          <a style={{ display: 'flex' }}>
             <Text color="white" h2>
               R
             </Text>
             <Text color="white" h3>
               ick & Morty
             </Text>
-          </Link>
+          </a>
         </NextLink>
       </div>
       <NextLink href="/favorites" passHref>
-        <Link>
+        <a>
           <Text color="white">Favorites</Text>
-        </Link>
+        </a>
       </NextLink>
     </div>
   );
