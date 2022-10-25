@@ -1,5 +1,5 @@
-export { SpecificCharacter } from './SpecificCharacter';
-export { FavoritesCharacters } from './FavoritesCharacters';
-export { NoFavoritesFound } from './NoFavoritesFound';
-export { CharacterCard } from './CharacterCard';
+export { SpecificCharacter } from './Character/SpecificCharacter';
+export { FavoritesCharacters } from './Favorite/FavoritesCharacters';
+export { NoFavoritesFound } from './Favorite/NoFavoritesFound';
+export { CharacterCard } from './Character/CharacterCard';
 export { Navbar } from "./Navbar";

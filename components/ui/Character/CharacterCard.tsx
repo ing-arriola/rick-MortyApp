@@ -1,7 +1,7 @@
 import { Card, Grid, Row, Text } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 
-import { Character } from '../../interfaces/characterList';
+import { Character } from '../../../interfaces/characterList';
 
 interface CharacterCardProps {
   character: Character;

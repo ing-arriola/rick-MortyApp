@@ -1,5 +1,5 @@
 import { Button, Card, Grid, Text, styled } from '@nextui-org/react';
-import { Character } from '../../interfaces';
+import { Character } from '../../../interfaces';
 
 interface SpecificCharacterProps {
   character: Character;
