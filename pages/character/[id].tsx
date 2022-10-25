@@ -5,7 +5,11 @@ import confetti from 'canvas-confetti';
 import { rickMortyApi } from '../../api';
 import { MainLayout } from '../../components/Layouts';
 import { Character, CharacterListResponse } from '../../interfaces';
-import { existInFavorites, toogleFavorites } from '../../utils';
+import {
+  existInFavorites,
+  getCharacterInfo,
+  toogleFavorites,
+} from '../../utils';
 import { SpecificCharacter } from '../../components/ui';
 
 interface CharacterPageProps {
@@ -61,12 +65,17 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params as { id: string };
 
-  const { data } = await rickMortyApi.get<Character>(`/character/${id}`);
-  return {
-    props: {
-      character: data,
-    },
-  };
+  const character = await getCharacterInfo(id);
+
+  if (!character) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  return character;
 };
 
 export default CharacterPage;
