@@ -6,7 +6,7 @@ import styled from 'styled-components';
 export const Navbar = () => {
   return (
     <NavBarContainer>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <LogoContainer>
         <Image src={`/img/logo.png`} alt="app logo" width={80} height={100} />
         <NextLink href="/" passHref>
           <a style={{ display: 'flex' }}>
@@ -18,7 +18,7 @@ export const Navbar = () => {
             </Text>
           </a>
         </NextLink>
-      </div>
+      </LogoContainer>
       <NextLink href="/favorites" passHref>
         <a>
           <Text color="white">Favorites</Text>
@@ -37,4 +37,9 @@ const NavBarContainer = styled.div`
   padding: 0px 20px;
   background-color: rgb(38, 41, 43);
   border-radius: 5px;
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;

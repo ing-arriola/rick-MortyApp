@@ -66,6 +66,7 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0.8rem;
 `;
 
 export default HomePage;
